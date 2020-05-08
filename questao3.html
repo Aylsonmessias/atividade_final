@@ -8,6 +8,19 @@
 <title>Currículo Aylson Messias</title>
 <link rel="shortcut icon" href="IMG/icon.png">
 
+
+<script>
+function contracheque(){
+  var nome = form_gerarcontracheque.nome.value;
+  var cargo = form_gerarcontracheque.cargo.value;
+  var salario = form_gerarcontracheque.salario.value;
+}
+
+</script>
+
+
+
+
 </head>
 
 <body>
@@ -46,11 +59,11 @@
       <main role="main" class="container">
         <div class="starter-template">
         <h1>QUESTÃO - 03</h1>
-
+      </div>
 
         
       
-        <form>
+        <form name="form_gerarcontracheque" id="form_gerarcontracheque" method="POST" action="">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label >Funcionário</label>
@@ -72,14 +85,14 @@
               <input type="text" class="form-control" id="inputZip">
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Sign in</button>
+          <button type="submit" class="btn btn-primary">Gerar</button>
         </form>
       
 
       
       
       
-      </div>
+      
 
 
 
