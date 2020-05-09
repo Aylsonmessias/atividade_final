@@ -9,8 +9,14 @@
 <link rel="shortcut icon" href="IMG/icon.png">
 
 
-    <script type="text/javascript">
-      function gerar(){
+
+
+
+
+
+
+ <script type="text/javascript">
+      function verificar(){
 
         var nome     = form_carne.nome.value;
         var produto  = form_carne.produto.value;
@@ -27,20 +33,18 @@
         }
         var valortotal = (parseFloat(valor));
 
-        for (i=1;i<=parcela;i++){}
-      
-
-     document.getElementById("resultado").innerHTML=
-     "--------------------------------------------- <b>CARNÊ DE PAGAMENTO</b> ----------------------------------------"+
+        for (i=1;i<=parcela;i++){
+          document.write(
+        "---------------------------------------------- <b>CARNÊ DE PAGAMENTO</b> ----------------------------------------------"+
         "<br><b>NOME DO CLIENTE:</b> "+nome.toUpperCase()+
         "<br><b>NOME DO PRODUTO:</b> "+produto.toUpperCase()+
-        "<br><b>VALOR DO PRODUTO:</b> "+"R$ "+parseFloat(valortotal).toLocaleString('pt-BR')+",00"+
-        "<br><b>NÚMERO DE PARCELAS:</b> " +parcela +" - Cada parcela será no valor de R$ "+parseFloat(valorparcela)+",00"+
+        "<br><b>VALOR DO ODUTO:</b> "+parseFloat(valortotal).toLocaleString('pt-BR')+
+        "<br><b>NUMERO DA PARCELA:</b> " +i +"/"+parcela.toLocaleString('pt-BR')+ "  "+"O valor da parcela é "+parseFloat(valorparcela)+
         "<br>------------------------------------------------------------------------------------------------------------------" 
-
-
-  }
-</Script>
+        )
+}
+         }
+    </script>
 
 </head>
 
@@ -80,67 +84,54 @@
         </div>
       </nav>
 
-    
-      
       <main role="main" class="container">
-        <div class="starter-template">
-            <h1>Questão - 02</h1>
-            <p class="lead">Programa para gerar CARNÊ DE PAGAMENTO de uma loja.<br> Pode ser utilizado no setor financeiro de qualquer empresa.</p>
-           
-              </div>
-  
-  
-              <form name="form_carne" id="form_carne" method="POST" action="">
-                  <div class="form-row">
-                    <div class="form-group col-md-12">
 
-                      <label for="inputAddress">Cliente</label>
-                      <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo">
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                      <label for="inputEmail4">Produto</label>
-                      <input type="text" class="form-control" id="Produto" name="produto" placeholder="Nome do produto">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="number">Valor</label>
-                      <input type="double" class="form-control" id="valor" name="valor" placeholder="Valor do Produto">
-                      
-                    </div>
-                  </div>
-                 
-                  
-                    <div class="form-group col-md-4">
-                      <label for="inputState">Parcelamento</label>
-                      <select id="parcela" name="parcela" class="form-control">
-                        <option selected>Quantidade de Parcelas...</option>
-                        <option value ="01">01</option>
-                        <option value ="02">02</option>
-                        <option value ="03">03</option>
-                        <option value ="04">04</option>
-                        <option value ="05">05</option>
-                        <option value ="06">06</option>
-          
-                      </select>
-                      <br><br>
-                    
-                  <button onclick="gerar()" type="button" class="btn btn-outline-primary float-right">Gerar</button>
-  
-                </form>
-                <br><br>
-  
-              
-          
-              
-  
-             
-             
-      </main>
-<div class="container" >
-  <p id="resultado" ></p>
-</div>
-  
+      <div class="starter-template">
+        <h1>Questão - 02</h1>
+        <p class="lead">Software para gerar CARNÊ DE PAGAMENTO de um cliente.<br> O Software pode ser utilizado no setor de Pagamento de empresas.</p>
 
+        <form style="text-align:left" name="form_carne" id="form_carne">
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+            <div class="col">
+              <label>Nome do Cliente</label>
+              <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome completo do Cliente" required>
+            </div>
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+            <div class="col">
+              <label>Produto</label>
+              <input type="text" class="form-control" id="produto" name="produto" placeholder="produto" required>
+            </div>
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <div class="col-md-6 mb-3">
+              <label>Valor do Produto</label>
+              <input type="number" class="form-control" id="valor" name="valor" placeholder="Valor do Produto" required>
+            </div>
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <div class="col-md-6 mb-3">
+              <label>Quantidade de PARCELAS</label>
+              <input type="number" class="form-control" id="parcela" name="parcela" min="1" max="6" placeholder="Parcelas" >
+            </div>
+          </div>
+          </div>
 
+            <button onclick="verificar()" class="btn btn-outline-primary float-right" type="button"/>Verificar</button>
+          </form>
+          <br></br>
+         <p id="CARNÊ DE PAGAMENTO"></p>
+
+    </main>
+
+      
       
       <footer class="footer mt-auto py-3">
         <div class="container text-center">
