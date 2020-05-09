@@ -10,6 +10,59 @@
 
 </head>
 
+<script>
+  function Imc() {
+    nome   = form_imc.nome.value;
+    peso   = form_imc.peso.value;
+    altura = form_imc.altura.value;
+    var nivel;
+    var situaçao;
+    imc=parseFloat(peso)+(parseFloat(altura)*parseFloat(altura));
+
+    if (imc < 18.5){ 
+      nivel= 'Baixo Peso';
+      situaçao= 'Peso baixo para a altura. Maior probabilidade de anorexia.';
+    }
+
+    else if (imc < 24.9){
+      nivel= 'Peso Normal';
+      situaçao='Maior probabilidade de ser um indivíduo saudável.';
+    }
+
+    else if (imc < 29.9){
+      nivel= "Pré-Obesidade";
+      situaçao= 'Alguma probabilidade de problemas de saúde. Predisposição a tornar-se obeso.';
+    }
+
+    else if (imc < 34.9){
+      nivel= 'Obesidade Grau 1';
+      situaçao= 'Risco Moderado de diabetes tipo 2, hipertensão, colesterol, cardiopatia.';
+    }
+
+    else if (imc < 39.9){
+      nivel= 'Obesidade Grau 2';
+      situaçao= 'Risco Grave. Aumenta o risco das doenças associadas. O risco de mortalidade aumenta 50%.';
+    }
+    
+    else{
+      nivel= 'Obesidade Mórbita';
+      situaçao='Risco Muito Grave. O ricso de doenças associadas assim como a mortalidade aumenta 90%.';
+    };
+    document.getElementById("demo").innerHTML =
+    "------------------------------------------------------------------------------------------------------"+
+                                        "<br><b>RESULTADO - IMC"+
+    "<br><b>PACIENTE:</b> "+ nome+
+    "<br><b>PESO:</b> "+peso+
+    "<br><b>ALTURA:</b> "+altura
+    "<br><b>IMC:</b> "+Imc+
+    
+    "Olá "+nome+", você está no nível de: "+nivel+". Com este nível de IMC você pode está propenso a apresentar </p> os seguintes casos "+situaçao+
+ "------------------------------------------------------------------------------------------------------"
+    
+  
+  }
+    
+</script>
 
 
 <body>
@@ -52,15 +105,44 @@
       <main role="main" class="container">
         <div class="starter-template">
         <h1>QUESTÃO - 04</h1>
+        <p class="lead">Programa para calcular o IMC de uma pessoa.<br> Pode ser utilizado por qualquer um.</p>
 
+          </div>
+          
+          <form id="form_imc" name="form_imc" method="POST" action="">
+            <div class="row">
+              <div class="col-12">
+                <label>Nome</label>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome completo do paciente" required>
+              </div>
 
+                <div class="col-6">
+                <label>Peso</label>
+                <input type="double" class="form-control" id="peso" name="peso" placeholder="Peso" required>
+                </div> 
+                
+                <div class="col-6">
+                <label>Altura</label>
+                <input type="double" class="form-control" id="altura" name="altura" placeholder="Altura" required>
+                </div>
+                
+            </div>
+              <br>
+                <button onclick="Imc()" class="btn btn-outline-primary float-right" type="button">Calcular</button>
+              
+            </form>
+             
+     
+            <p id="demo"></p>
+
+        </main>
+        
 
 
 
         
       
-      </main>
-
+     
       
       
       <footer class="footer mt-auto py-3">
