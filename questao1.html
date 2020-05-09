@@ -13,25 +13,30 @@
       nome        = form_calcularmedia.nome.value;
       disciplina  = form_calcularmedia.disciplina.value;
       nota1      = form_calcularmedia.nota1.value;
-      nota2    = form_calcularmedia.nota1.value;
+      nota2    = form_calcularmedia.nota2.value;
 
       media = (parseFloat(nota1) + parseFloat(nota2))/2;
       
-      if (media < 7){
-          resultado = 'Reprovado';
+      if (media < 3){
+          resultado = 'REPROVADO';
       }
 
-      else if (media > 3){
-          resultado = 'Aprovado';
+      else if (media > 7){
+          resultado = 'APROVADO';
       }
 
       else{
-          resultado = 'Recuperação';
+          resultado = 'RECUPERAÇÃO';
       }
       document.getElementById("demo").innerHTML =
-      "---------------------------------------------- <b>CONTRA CHEQUE</b> ----------------------------------------------"+
+      "---------------------------------------------- <b>BOLETIM</b> ----------------------------------------------"+
       "<br><b>ALUNO:</b> "+nome.toUpperCase()+
-      ""
+      "<br><b>DISCIPLINA:</b> "+disciplina+
+      "<br><b>NOTA I:</b> "+ nota1+
+      "<br><b>NOTA II:</b> "+ nota2+
+      "<br><b>RESULTADO:</b> " + nome+", você foi "+resultado+" na disciplina "+disciplina+" e ficou com média "+media+
+      "<br>-----------------------------------------------------------------------------------------------------------------"
+
   
       
 
